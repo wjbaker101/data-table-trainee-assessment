@@ -19,7 +19,7 @@ $.getJSON('data.json', function (data) {
 
 Within approximately three to four hours we would expect:
 
-* A small JavaScript application that takes the data as a parameter and renders out a HTML table into the body of the HTML document.
+* JavaScript code that takes the data and renders out a HTML table into the body of the HTML document.
 * Human readable date formats
 
 Here's an example of what we'd like you to generate:
