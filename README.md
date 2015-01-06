@@ -27,3 +27,5 @@ Here's an example of what we'd like you to generate:
 | Date         | BBC One | BBC Two | BBC Three | BBC News 24 | CBBC | Cbeebies |
 | ------------ | ------- | ------- | --------- | ----------- | ---- | -------- |
 | January 2009 | 940     | 1040    | 441       | 1075        | 898  | 1343     |
+
+If you really want to impress us you could improve the table by making it sortable via each column, or providing some kind of visualisation of the data with a chart below the table.
