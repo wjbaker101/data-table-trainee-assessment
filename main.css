@@ -11,6 +11,7 @@ body
     font-family: sans-serif;
     font-size: 15px;
     letter-spacing: 1px;
+    background-color: #fefefe;
 }
 
 table
@@ -27,16 +28,18 @@ table th
 
 table tr
 {
-    background-color: #fefefe;
+    background-color: #fff;
 }
 
 table th
 {
     text-align: left;
-    background-color: #ceceee;
+    background-color: #222;
+    color: #fff;
 }
 
-table td:not(:first-child)
+table td:not(:first-child),
+table th:not(:first-child)
 {
     text-align: right;
 }
