@@ -29,3 +29,32 @@ const formatDate = (date) =>
     
     return `${getMonth(year)} ${month}`;
 };
+
+const getTableRow = (rowData) =>
+{
+    const [date, channel] = rowData;
+    
+    return `
+        <tr>
+            <td>${formatDate(date)}</td>
+            <td>${channel.bbcone}</td>
+            <td>${channel.bbctwo}</td>
+            <td>${channel.bbcthree}</td>
+            <td>${channel.bbcnews24}</td>
+            <td>${channel.cbbc}</td>
+            <td>${channel.cbeebies}</td>
+        </tr>
+    `;
+};
+
+const getTableHTML = (data) =>
+{
+    let html = '';
+    
+    Object.entries(data).forEach((rowData) =>
+    {
+        html += getTableRow(rowData);
+    });
+    
+    return html;
+};
