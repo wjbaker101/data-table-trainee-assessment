@@ -58,3 +58,15 @@ const getTableHTML = (data) =>
     
     return html;
 };
+
+const displayTable = (data) =>
+{
+    document.querySelector('.data-table').innerHTML = getTableHTML(data);
+};
+
+const init = () =>
+{
+    $.getJSON('data.json', displayTable);
+};
+
+window.addEventListener('load', init);
