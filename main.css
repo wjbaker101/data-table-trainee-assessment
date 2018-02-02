@@ -12,3 +12,31 @@ body
     font-size: 15px;
     letter-spacing: 1px;
 }
+
+table
+{
+    border-collapse: collapse;
+}
+
+table td,
+table th
+{
+    padding: 0.5rem 1rem;
+    border: 1px solid #eee;
+}
+
+table tr
+{
+    background-color: #fefefe;
+}
+
+table th
+{
+    text-align: left;
+    background-color: #ceceee;
+}
+
+table td:not(:first-child)
+{
+    text-align: right;
+}
