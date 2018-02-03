@@ -11,30 +11,39 @@
         <link href="main.css" media="all" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>BBC One</th>
-                    <th>BBC Two</th>
-                    <th>BBC Three</th>
-                    <th>BBC News 24</th>
-                    <th>CBBC</th>
-                    <th>Cbeebies</th>
-                </tr>
-            </thead>
-            <tbody class="data-table"></tbody>
-        </table>
-        <canvas width="720" height="480" class="graph-canvas">
-            Browser does not support canvas.
-        </canvas>
-        <div>
-            <p class="bbc-one">&bull; BBC One</p>
-            <p class="bbc-two">&bull; BBC Two</p>
-            <p class="bbc-three">&bull; BBC Three</p>
-            <p class="bbc-news-24">&bull; BBC News 24</p>
-            <p class="cbbc">&bull; CBBC</p>
-            <p class="cbeebies">&bull; Cbeebies</p>
+        <h1 class="text-centered">BBC Data Table</h1>
+        <p class="text-centered">
+            <button class="show-table-button">Show Table</button>
+            <button class="show-graph-button">Show Graph</button>
+        </p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>BBC One</th>
+                        <th>BBC Two</th>
+                        <th>BBC Three</th>
+                        <th>BBC News 24</th>
+                        <th>CBBC</th>
+                        <th>Cbeebies</th>
+                    </tr>
+                </thead>
+                <tbody class="data-table"></tbody>
+            </table>
+        </div>
+        <div class="graph-container hidden">
+            <canvas width="720" height="480" class="graph-canvas">
+                Browser does not support canvas.
+            </canvas>
+            <div>
+                <p class="bbc-one">&bull; BBC One</p>
+                <p class="bbc-two">&bull; BBC Two</p>
+                <p class="bbc-three">&bull; BBC Three</p>
+                <p class="bbc-news-24">&bull; BBC News 24</p>
+                <p class="cbbc">&bull; CBBC</p>
+                <p class="cbeebies">&bull; Cbeebies</p>
+            </div>
         </div>
         <script src="jquery-2.1.1.js"></script>
         <script src="scripts.js"></script>
