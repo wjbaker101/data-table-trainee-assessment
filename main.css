@@ -43,3 +43,38 @@ table th:not(:first-child)
 {
     text-align: right;
 }
+
+.graph-canvas
+{
+    border: 1px solid #222;
+}
+
+.bbc-one
+{
+    color: #ea2923;
+}
+
+.bbc-two
+{
+    color: #005761;
+}
+
+.bbc-three
+{
+    color: #d41c6f;
+}
+
+.bbc-news-24
+{
+    color: #900;
+}
+
+.cbbc
+{
+    color: #9fe600;
+}
+
+.cbeebies
+{
+    color: #2cade6;
+}
