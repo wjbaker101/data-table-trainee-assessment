@@ -81,6 +81,8 @@ const dataGraph = (() =>
     const graphMin = 400;
     const graphMax = 1500;
     
+    const intervals = 20;
+    
     const drawLine = (x1, y1, x2, y2) =>
     {
         graphics.moveTo(x1, y1);
