@@ -83,6 +83,16 @@ const dataGraph = (() =>
     
     const intervals = 20;
     
+    const channelColours =
+    [
+        '#ea2923',
+        '#005761',
+        '#d41c6f',
+        '#900',
+        '#9fe600',
+        '#2cade6',
+    ];
+    
     const drawLine = (x1, y1, x2, y2) =>
     {
         graphics.moveTo(x1, y1);
@@ -178,9 +188,11 @@ const dataGraph = (() =>
     {
         const channels = getChannelValues(data);
         
-        Object.entries(channels).forEach(([channel, values]) =>
+        Object.entries(channels).forEach(([channel, values], index) =>
         {
             const initialPoint = translatePoint(0, values[0]);
+            
+            graphics.strokeStyle = channelColours[index];
             
             graphics.beginPath();
             graphics.moveTo(initialPoint.x, initialPoint.y);
