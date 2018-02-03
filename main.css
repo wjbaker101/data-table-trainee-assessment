@@ -43,3 +43,8 @@ table th:not(:first-child)
 {
     text-align: right;
 }
+
+.graph-canvas
+{
+    border: 1px solid #222;
+}
