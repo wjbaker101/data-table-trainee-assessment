@@ -226,3 +226,23 @@ const dataGraph = (() =>
 })();
 
 window.addEventListener('load', dataGraph.draw);
+
+const initButtons = () =>
+{
+    const showTableButton = document.querySelector('.show-table-button');
+    const showGraphButton = document.querySelector('.show-graph-button');
+    
+    showTableButton.addEventListener('click', () =>
+    {
+        document.querySelector('.table-container').classList.remove('hidden');
+        document.querySelector('.graph-container').classList.add('hidden');
+    });
+    
+    showGraphButton.addEventListener('click', () =>
+    {
+        document.querySelector('.table-container').classList.add('hidden');
+        document.querySelector('.graph-container').classList.remove('hidden');
+    });
+};
+
+window.addEventListener('load', initButtons);
