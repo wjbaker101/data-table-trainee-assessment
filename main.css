@@ -24,8 +24,6 @@ body
 
 table
 {
-    margin-left: auto;
-    margin-right: auto;
     border-collapse: collapse;
 }
 
@@ -57,6 +55,15 @@ table th:not(:first-child)
 .graph-canvas
 {
     border: 1px solid #222;
+}
+
+.graph-canvas,
+.graph-key,
+table
+{
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .bbc-one
