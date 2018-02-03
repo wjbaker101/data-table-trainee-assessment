@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+html,
+body
+{
+    height: 100%;
+}
+
 body
 {
     margin: 0;
@@ -14,8 +20,12 @@ body
     background-color: #fefefe;
 }
 
+.text-centered { text-align: center; }
+
 table
 {
+    margin-left: auto;
+    margin-right: auto;
     border-collapse: collapse;
 }
 
@@ -77,4 +87,10 @@ table th:not(:first-child)
 .cbeebies
 {
     color: #2cade6;
+}
+
+.table-container.hidden,
+.graph-container.hidden
+{
+    display: none;
 }
