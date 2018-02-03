@@ -88,6 +88,13 @@ const dataGraph = (() =>
         graphics.stroke();
     };
     
+    const drawCircle = (x, y, radius) =>
+    {
+        graphics.beginPath();
+        graphics.arc(x, y, radius, 0, 2 * Math.PI);
+        graphics.stroke(); 
+    };
+    
     const drawAxes = () =>
     {
         graphics.strokeStyle = '#222';
@@ -114,8 +121,6 @@ const dataGraph = (() =>
         drawLine(axisOffset, axisOffset, axisOffset, graph.height - axisOffset);
         
         const height = (graph.height - axisOffset) - axisOffset;
-        
-        const intervals = 20;
         
         const step = (graphMax - graphMin) / 20;
         const stepSize = height / intervals;
