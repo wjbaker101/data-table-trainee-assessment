@@ -124,17 +124,89 @@ const dataGraph = (() =>
         
         const height = (graph.height - axisOffset) - axisOffset;
         
-        const step = (graphMax - graphMin) / 20;
+        const step = (graphMax - graphMin) / intervals;
         const stepSize = height / intervals;
         
         for (let i = 0; i < intervals + 1; ++i)
         {
-            graphics.fillText(graphMax - (step * i), 20 - 15, axisOffset + (height / stepSize * i));
+            graphics.fillText(graphMax - (step * i), 20 - 15, axisOffset + (stepSize * i));
         }
+    };
+    
+    const getChannelValues = (data) =>
+    {
+        const channels =
+        {
+            bbcone: [],
+            bbctwo: [],
+            bbcthree: [],
+            bbcnews24: [],
+            cbbc: [],
+            cbeebies: [],
+        };
+        
+        Object.entries(data).forEach(([date, channel]) =>
+        {
+            channels.bbcone.push(channel.bbcone);
+            channels.bbctwo.push(channel.bbctwo);
+            channels.bbcthree.push(channel.bbcthree);
+            channels.bbcnews24.push(channel.bbcnews24);
+            channels.cbbc.push(channel.cbbc);
+            channels.cbeebies.push(channel.cbeebies);
+        });
+        
+        return channels;
+    };
+    
+    const translatePoint = (index, value) =>
+    {
+        const width = (graph.width - axisOffset) - axisOffset;
+        const height = (graph.height - axisOffset) - axisOffset;
+        
+        const valueRatio = (value - graphMin) / (graphMax - graphMin);
+        
+        const point =
+        {
+            x: axisOffset + (width / 12 * index),
+            y: graph.height - axisOffset - (height * valueRatio),
+        };
+        
+        return point;
+    };
+    
+    const drawChannelValues = (data) =>
+    {
+        const channels = getChannelValues(data);
+        
+        Object.entries(channels).forEach(([channel, values]) =>
+        {
+            const initialPoint = translatePoint(0, values[0]);
+            
+            graphics.beginPath();
+            graphics.moveTo(initialPoint.x, initialPoint.y);
+            
+            for (let i = 0; i < values.length; ++i)
+            {
+                const point = translatePoint(i, values[i]);
+                
+                graphics.lineTo(point.x, point.y);
+            }
+            
+            graphics.stroke();
+            
+            for (let i = 0; i < values.length; ++i)
+            {
+                const point = translatePoint(i, values[i]);
+
+                drawCircle(point.x, point.y, 2);
+            }
+        });
     };
     
     const drawGraph = () =>
     {
+        $.getJSON('data.json', drawChannelValues);
+        
         drawAxes();
     };
     
