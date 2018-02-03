@@ -1,21 +1,21 @@
+const months =
+[
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+];
+
 const getMonth = (index) =>
 {
-    const months =
-    [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-    ];
-    
     if (index < 1) throw new Error('Month cannot be less than 1');
     
     if (index > 12) throw new Error('Month cannot be more than 12');
@@ -70,3 +70,68 @@ const init = () =>
 };
 
 window.addEventListener('load', init);
+
+const dataGraph = (() =>
+{
+    const graph = document.querySelector('.graph-canvas');
+    const graphics = graph.getContext('2d');
+    
+    const axisOffset = 40;
+    
+    const graphMin = 400;
+    const graphMax = 1500;
+    
+    const drawLine = (x1, y1, x2, y2) =>
+    {
+        graphics.moveTo(x1, y1);
+        graphics.lineTo(x2, y2);
+        graphics.stroke();
+    };
+    
+    const drawAxis = () =>
+    {
+        graphics.strokeStyle = '#222';
+
+        drawAxisY();
+        
+        drawAxisX();
+    };
+    
+    const drawAxisX = () =>
+    {
+        drawLine(axisOffset, graph.height - axisOffset, graph.width - axisOffset, graph.height - axisOffset);
+        
+        const width = (graph.width - axisOffset) - axisOffset;
+        
+        for (let i = 0; i < months.length; ++i)
+        {
+            graphics.fillText(months[i].substr(0, 3), axisOffset + (width / 12 * i), graph.height - axisOffset + 15);
+        }
+    };
+    
+    const drawAxisY = () =>
+    {
+        drawLine(axisOffset, axisOffset, axisOffset, graph.height - axisOffset);
+        
+        const height = (graph.height - axisOffset) - axisOffset;
+        
+        const intervals = 20;
+        
+        const step = (graphMax - graphMin) / 20;
+        const stepSize = height / intervals;
+        
+        for (let i = 0; i < intervals + 1; ++i)
+        {
+            graphics.fillText(graphMax - (step * i), 20 - 15, axisOffset + (height / stepSize * i));
+        }
+    };
+    
+    const drawGraph = () =>
+    {
+        drawAxis();
+    };
+    
+    return { draw: drawGraph }
+})();
+
+window.addEventListener('load', dataGraph.draw);
