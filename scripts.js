@@ -88,7 +88,7 @@ const dataGraph = (() =>
         graphics.stroke();
     };
     
-    const drawAxis = () =>
+    const drawAxes = () =>
     {
         graphics.strokeStyle = '#222';
 
@@ -128,7 +128,7 @@ const dataGraph = (() =>
     
     const drawGraph = () =>
     {
-        drawAxis();
+        drawAxes();
     };
     
     return { draw: drawGraph }
